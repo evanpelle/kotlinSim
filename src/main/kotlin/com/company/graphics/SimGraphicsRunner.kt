@@ -8,11 +8,12 @@ fun main(args: Array<String>) {
     val simRunner = SimRunner()
     val simGraphics = SimGraphics(simMap)
 
-    for (i in 0..90) {
+    for (i in 0..150) {
+        println("tick")
         simRunner.tick(simMap)
         simGraphics.repaint()
         try {
-            Thread.sleep(500)
+            Thread.sleep(100)
         } catch (e: InterruptedException) {
             e.printStackTrace()
         }

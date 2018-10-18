@@ -1,9 +1,8 @@
 package com.company.simmap
 
 import com.company.automaton.TestAutomaton
-import junit.framework.Assert.assertFalse
-import junit.framework.TestCase.*
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Test
 
 internal class SimMapTest {
 

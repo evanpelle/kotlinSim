@@ -1,5 +1,12 @@
--- rest
--- move randomly
--- photosynth
--- reproduce
--- attack
+-- rest DONE
+-- atrophy DONE
+-- move randomly DONE
+-- photosynth DONE
+-- plant auto DONE
+-- make circles DONE
+-- death DONE
+-- reproduce DONE
+-- attack DONE
+-- create status system
+-- seed
+-- auto sight

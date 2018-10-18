@@ -1,4 +1,4 @@
-package com.company
+package com.company.graphics
 
 import com.company.simmap.Location
 import com.company.simmap.SimMap

@@ -8,10 +8,30 @@ class SimMap(val width: Int, val height: Int) {
 
     private val automatonToLocationMap: MutableMap<Automaton, Location> = mutableMapOf()
 
+    fun getRandomEmptyNeighbor(loc: Location): Location? {
+        val emptyNeighborLocations = getEmptyNeighborLocations(loc)
+        if (emptyNeighborLocations.isNotEmpty()) {
+            return emptyNeighborLocations[(Math.random() * emptyNeighborLocations.size).toInt()]
+        }
+        return null
+    }
+
+    fun getRandomNeighborWithAuto(loc: Location): Location? {
+        val neighborsWithAutos = loc.getNeighbors().filter { containsAuto(it) }
+        if (neighborsWithAutos.isNotEmpty()) {
+            return neighborsWithAutos[(Math.random() * neighborsWithAutos.size).toInt()]
+        }
+        return null
+    }
+
+    fun getEmptyNeighborLocations(loc: Location): List<Location> {
+        return loc.getNeighbors().filter { canMoveOn(it) }
+    }
+
     fun addAutomaton(loc: Location, auto: Automaton): Boolean {
         if (isOnMap(loc) && isEmpty(loc) && !automatonToLocationMap.contains(auto)) {
             map[loc.x][loc.y] = auto
-            automatonToLocationMap.put(auto, loc)
+            automatonToLocationMap[auto] = loc
             return true
         }
         return false
@@ -25,6 +45,15 @@ class SimMap(val width: Int, val height: Int) {
         map[loc.x][loc.y] = null
         automatonToLocationMap.remove(toRemove)
         return toRemove
+    }
+
+    fun removeAutomaton(auto: Automaton): Boolean {
+        val loc = getLocation(auto)
+        if (loc != null) {
+            removeAutomaton(loc)
+            return true
+        }
+        return false
     }
 
     fun getAutomaton(loc: Location): Automaton? {
@@ -45,6 +74,10 @@ class SimMap(val width: Int, val height: Int) {
     // TODO: throw exception if not on map
     fun isEmpty(loc: Location): Boolean {
         return isOnMap(loc) && getAutomaton(loc) == null
+    }
+
+    fun containsAuto(loc: Location): Boolean {
+        return isOnMap(loc) && !isEmpty(loc)
     }
 
     fun isOnMap(loc: Location): Boolean {

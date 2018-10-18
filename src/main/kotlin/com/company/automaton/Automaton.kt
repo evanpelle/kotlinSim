@@ -1,10 +1,10 @@
 package com.company.automaton
 
-import com.company.action.SimUpdate
+import com.company.action.SimAction
 
 interface Automaton {
 
-    fun tick(): SimUpdate
+    fun tick(): SimAction
 
     fun getStatus(): Status
 

@@ -5,10 +5,8 @@ import com.company.automaton.TestAutomaton
 import com.company.simmap.Direction
 import com.company.simmap.Location
 import com.company.simmap.SimMap
-import junit.framework.Assert.assertEquals
-import junit.framework.Assert.assertTrue
-import junit.framework.TestCase.assertFalse
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Test
 
 internal class MoveTest {
 

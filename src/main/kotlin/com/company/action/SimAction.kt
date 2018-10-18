@@ -2,7 +2,7 @@ package com.company.action
 
 import com.company.simmap.SimMap
 
-interface SimUpdate {
+interface SimAction {
 
     fun performAction(simMap: SimMap)
 

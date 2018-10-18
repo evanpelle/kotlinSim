@@ -2,9 +2,9 @@ package test.com.company.simmap
 
 import com.company.simmap.Direction
 import com.company.simmap.Location
-import junit.framework.TestCase.assertEquals
-import junit.framework.TestCase.assertNull
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertNull
+import org.junit.jupiter.api.Test
 
 internal class LocationTest {
 

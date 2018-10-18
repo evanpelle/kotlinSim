@@ -1,5 +1,6 @@
 package com.company
 
+import com.company.graphics.SimMapPrinter
 import com.company.simmap.SimMapGenerator
 
 fun main(args: Array<String>) {

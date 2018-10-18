@@ -9,7 +9,6 @@ package com.company.graphics
  * <P>
  * @author Bill Day <bill.day></bill.day>@javaworld.com>
  * @version 1.0
- * @see java.awt.Graphics2D
 </P> */
 
 import org.jetbrains.annotations.NotNull

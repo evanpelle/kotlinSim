@@ -26,8 +26,8 @@ class SimGraphics(private val simMap: SimMap) : Frame("Java 2D Example01") {
      * the frame.
      */
 
-    private val horizontalScale = 100
-    private val verticalScale = 100
+    private val horizontalScale = 50
+    private val verticalScale = 50
 
     init {
 
@@ -74,16 +74,24 @@ class SimGraphics(private val simMap: SimMap) : Frame("Java 2D Example01") {
         for (auto in simMap.getAutomatons()) {
             val loc = simMap.getLocation(auto)
             if (loc != null) {
-                drawRect(g2d, Color.BLACK, loc)
+                drawCircle(g2d, Color.BLACK, loc)
             }
         }
-        println("im here")
-
     }
 
     private fun drawRect(g2D: Graphics2D, color: Color, loc: Location) {
         g2D.color = color
         g2D.drawRect(loc.x * horizontalScale, loc.y * horizontalScale, horizontalScale, verticalScale)
+    }
+
+    private fun drawCircle(g2D: Graphics2D, color: Color, loc: Location) {
+        g2D.color = color
+        g2D.drawOval(
+                loc.x * horizontalScale,
+                loc.y * verticalScale,
+                horizontalScale - horizontalScale/5,
+                verticalScale - horizontalScale/5
+        )
     }
 
 }
