@@ -1,9 +1,10 @@
 package com.company.action
 
+import com.company.event.Event
 import com.company.simmap.SimMap
 
-interface SimAction {
+interface SimAction: Event {
 
-    fun performAction(simMap: SimMap)
+    fun execute(simMap: SimMap): List<Event>
 
 }

@@ -4,14 +4,14 @@ import com.company.action.Death
 import com.company.action.Metabolize
 import com.company.simmap.SimMap
 
-class SimRunner {
+class SimRunner(private val executor: ActionExecutor) {
 
     fun tick(simMap: SimMap) {
         for (auto in simMap.getAutomatons()) {
             val action = auto.tick()
-            action.performAction(simMap)
-            Metabolize(auto).performAction(simMap)
-            Death(auto).performAction(simMap)
+            executor.executeActions(simMap, listOf(action))
+            executor.executeActions(simMap, listOf(Metabolize(auto)))
+            executor.executeActions(simMap, listOf(Death(auto)))
         }
     }
 

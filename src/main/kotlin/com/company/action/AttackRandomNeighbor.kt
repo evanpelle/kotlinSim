@@ -1,13 +1,15 @@
 package com.company.action
 
 import com.company.automaton.Automaton
+import com.company.event.Event
 import com.company.simmap.SimMap
 
 class AttackRandomNeighbor(private val auto: Automaton) : SimAction {
 
-    override fun performAction(simMap: SimMap) {
-        val randomNeighborWithAuto = simMap.getRandomNeighborWithAuto(simMap.getLocation(auto) ?: return) ?: return
-        Attack(auto, simMap.getAutomaton(randomNeighborWithAuto) ?: return).performAction(simMap)
+    override fun execute(simMap: SimMap): List<Event> {
+        val randomNeighborWithAuto = simMap.getRandomNeighborWithAuto(simMap.getLocation(auto) ?: return emptyList())
+                ?: return emptyList()
+        return Attack(auto, simMap.getAutomaton(randomNeighborWithAuto) ?: return emptyList()).execute(simMap)
     }
 
 }

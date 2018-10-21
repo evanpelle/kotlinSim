@@ -4,6 +4,4 @@ import com.company.simmap.SimMap
 
 interface Event {
 
-    fun execute(simMap: SimMap)
-
 }

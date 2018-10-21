@@ -4,7 +4,6 @@ import com.company.automaton.Attributes
 import com.company.automaton.Status
 import com.company.simmap.SimMap
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
 internal class StatusUpdateEventTest {

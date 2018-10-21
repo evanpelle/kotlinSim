@@ -15,7 +15,7 @@ internal class PlaceAutoTest {
     @Test
     fun placesAutoWhenCellIsEmpty() {
         val auto = TestAutomaton()
-        PlaceAuto(auto, location).performAction(simMap)
+        PlaceAuto(auto, location).execute(simMap)
         assertEquals(auto, simMap.getAutomaton(location))
     }
 
@@ -24,7 +24,7 @@ internal class PlaceAutoTest {
         val prevAuto = TestAutomaton()
         simMap.addAutomaton(location, prevAuto)
         val autoToPlace = TestAutomaton()
-        PlaceAuto(autoToPlace, location).performAction(simMap)
+        PlaceAuto(autoToPlace, location).execute(simMap)
         assertEquals(prevAuto, simMap.getAutomaton(location))
     }
 

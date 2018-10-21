@@ -5,7 +5,7 @@ import com.company.simmap.SimMapGenerator
 
 fun main(args: Array<String>) {
     val simMap = SimMapGenerator().generateDefaultMap()
-    val simRunner = SimRunner()
+    val simRunner = SimRunner(ActionExecutor())
     val simMapPrinter = SimMapPrinter()
 
     for (i in 0..9) {

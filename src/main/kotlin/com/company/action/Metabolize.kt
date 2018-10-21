@@ -2,12 +2,15 @@ package com.company.action
 
 import com.company.action.SimAction
 import com.company.automaton.Automaton
+import com.company.automaton.Status
+import com.company.event.Event
+import com.company.event.StatusUpdateEvent
 import com.company.simmap.SimMap
 
 class Metabolize(private val auto: Automaton) : SimAction {
 
-    override fun performAction(simMap: SimMap) {
-        auto.getStatus().energy -= 1
+    override fun execute(simMap: SimMap): List<Event> {
+        return listOf(StatusUpdateEvent(auto.getStatus(), Status.StatusChange(0.0, -1.0)))
     }
 
 }

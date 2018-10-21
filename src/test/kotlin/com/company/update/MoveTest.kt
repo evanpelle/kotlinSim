@@ -16,7 +16,7 @@ internal class MoveTest {
 
     @Test
     fun autoDoesNotMoveIfNotOnMap() {
-        Move(auto, Direction.WEST).performAction(simMap)
+        Move(auto, Direction.WEST).execute(simMap)
         assertFalse(simMap.isOnMap(auto))
     }
 
@@ -24,7 +24,7 @@ internal class MoveTest {
     fun autoDoesNotMoveIfEnergyBelow30() {
         auto.getStatus().energy = 25.0
         simMap.addAutomaton(startLocation, auto)
-        Move(auto, Direction.WEST).performAction(simMap)
+        Move(auto, Direction.WEST).execute(simMap)
         assertTrue(simMap.isEmpty(Loc(0, 1)))
     }
 
@@ -32,7 +32,7 @@ internal class MoveTest {
     fun autoDoesNotMoveIfTargetLocationIsNotEmpty() {
         simMap.addAutomaton(startLocation, auto)
         simMap.addAutomaton(Loc(0, 1), TestAutomaton())
-        Move(auto, Direction.WEST).performAction(simMap)
+        Move(auto, Direction.WEST).execute(simMap)
         assertEquals(startLocation, simMap.getLocation(auto))
     }
 
@@ -40,7 +40,7 @@ internal class MoveTest {
     fun autoMovesIfAllowed() {
         simMap.addAutomaton(startLocation, auto)
         val targetLocation = Loc(0, 1)
-        Move(auto, Direction.WEST).performAction(simMap)
+        Move(auto, Direction.WEST).execute(simMap)
         assertEquals(targetLocation, simMap.getLocation(auto))
     }
 
