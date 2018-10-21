@@ -12,7 +12,7 @@ class PlantAutomaton : AutomatonImpl(Status.createDefault()) {
             return Heal(this)
         }
         if (getStatus().health > 60 && getStatus().energy > 60) {
-            return ReproduceAction(this, PlantAutomaton())
+            return ReproduceAction(this) { PlantAutomaton() }
         }
         return PhotoSynth(this)
     }

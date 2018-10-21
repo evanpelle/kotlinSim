@@ -20,4 +20,10 @@ class SimMapGenerator {
         return simMap
     }
 
+    fun generateLargeMap(): SimMap {
+        val simMap = SimMap(100, 100)
+        simMap.addAutomaton(Loc(50, 50), PlantAutomaton())
+        return simMap
+    }
+
 }

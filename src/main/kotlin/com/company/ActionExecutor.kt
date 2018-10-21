@@ -7,15 +7,15 @@ import com.company.simmap.SimMap
 
 class ActionExecutor {
 
-    fun executeAction(gameAttributes: GameAttributes, simMap: SimMap, action: Event) {
-        executeActions(gameAttributes, simMap, listOf(action))
+    fun executeAction(simMap: SimMap, action: Event) {
+        executeActions(simMap, listOf(action))
     }
 
-    fun executeActions(gameAttributes: GameAttributes, simMap: SimMap, actions: List<Event>) {
+    fun executeActions(simMap: SimMap, actions: List<Event>) {
         for (action in actions) {
             when (action) {
                 is BasicEvent -> action.execute(simMap)
-                is SimAction -> executeActions(gameAttributes, simMap, action.execute(gameAttributes, simMap))
+                is SimAction -> executeActions(simMap, action.execute(simMap))
             }
         }
     }

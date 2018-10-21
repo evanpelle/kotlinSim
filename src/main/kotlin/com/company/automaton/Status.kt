@@ -41,6 +41,6 @@ class Status(val attributes: Attributes,
         return min(maxVal, max(minVal, valueToSet))
     }
 
-    class StatusChange(val healthChange: Double, val energyChange: Double)
+    data class StatusChange(val healthChange: Double, val energyChange: Double)
 
 }

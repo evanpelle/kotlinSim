@@ -9,10 +9,11 @@
 -- attack DONE
 -- create status system DONE
 -- create action/event system DONE
--- implement game attributes class
--- unit tests
+-- make animals different color DONE
+-- refactor/test ReproduceUpdate DONE
+-- animal finds and attacks
+-- available energy
 -- implement LocalMap
--- refactor ReproduceUpdate
--- move reports status
+-- unit tests
 -- seed
 -- auto sight

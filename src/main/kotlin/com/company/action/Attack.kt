@@ -1,6 +1,5 @@
 package com.company.action
 
-import com.company.GameAttributes
 import com.company.automaton.Automaton
 import com.company.automaton.Status
 import com.company.event.Event
@@ -14,8 +13,8 @@ data class Attack(private val attacker: Automaton, private val attacked: Automat
         const val attackEnergy = 40.0
     }
 
-    override fun execute(ga: GameAttributes, simMap: SimMap): List<Event> {
-        if (attacker.getStatus().energy < ga.attackEnergy) {
+    override fun execute(simMap: SimMap): List<Event> {
+        if (attacker.getStatus().energy < attackEnergy) {
             return emptyList()
         }
         val attackerLocation = simMap.getLocation(attacker) ?: return emptyList()

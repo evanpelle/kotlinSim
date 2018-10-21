@@ -1,6 +1,5 @@
 package com.company.action
 
-import com.company.GameAttributes
 import com.company.automaton.Automaton
 import com.company.automaton.Status
 import com.company.event.Event
@@ -14,7 +13,7 @@ data class Heal(private val auto: Automaton) : SimAction {
         const val energyRequired = 25.0
     }
 
-    override fun execute(ga: GameAttributes, simMap: SimMap): List<Event> {
+    override fun execute(simMap: SimMap): List<Event> {
         if (auto.getStatus().energy > energyRequired
                 && auto.getStatus().health < auto.getStatus().attributes.maxHealth - healthGained) {
             return listOf(

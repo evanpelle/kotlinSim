@@ -1,7 +1,6 @@
 package com.company.action
 
 import com.company.ActionExecutor
-import com.company.GameAttributes
 import com.company.automaton.TestAutomaton
 import com.company.simmap.Loc
 import com.company.simmap.SimMapGenerator
@@ -10,14 +9,13 @@ import org.junit.jupiter.api.Test
 
 internal class PlaceAutoTest {
 
-    private val gameAttributes = GameAttributes.default()
     private val simMap = SimMapGenerator().generateEmptyMap(10, 10)
     private val location = Loc(5, 5)
 
     @Test
     fun placesAutoWhenCellIsEmpty() {
         val auto = TestAutomaton()
-        ActionExecutor().executeAction(gameAttributes, simMap, PlaceAuto(auto, location))
+        ActionExecutor().executeAction(simMap, PlaceAuto(auto, location))
         assertEquals(auto, simMap.getAutomaton(location))
     }
 
@@ -26,7 +24,7 @@ internal class PlaceAutoTest {
         val prevAuto = TestAutomaton()
         simMap.addAutomaton(location, prevAuto)
         val autoToPlace = TestAutomaton()
-        ActionExecutor().executeAction(gameAttributes, simMap, PlaceAuto(autoToPlace, location))
+        ActionExecutor().executeAction(simMap, PlaceAuto(autoToPlace, location))
         assertEquals(prevAuto, simMap.getAutomaton(location))
     }
 

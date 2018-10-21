@@ -1,6 +1,5 @@
 package com.company.action
 
-import com.company.GameAttributes
 import com.company.automaton.TestAutomaton
 import com.company.event.Remove
 import com.company.simmap.Loc
@@ -11,7 +10,6 @@ import org.junit.jupiter.api.Test
 
 internal class DeathTest {
 
-    val gameAttributes = GameAttributes.default()
     val simMap = SimMap(10, 10)
     val auto = TestAutomaton()
 
@@ -24,19 +22,19 @@ internal class DeathTest {
 
     @Test
     fun deathDoesNothingIfEnergyAndHealthAboveZero() {
-        assertThat(Death(auto).execute(gameAttributes, simMap)).isEmpty()
+        assertThat(Death(auto).execute(simMap)).isEmpty()
     }
 
     @Test
     fun deathKillsAutoIfHealthZero() {
         auto.getStatus().health = 0.0
-        assertThat(Death(auto).execute(gameAttributes, simMap)).containsOnly(Remove(autoLoc))
+        assertThat(Death(auto).execute(simMap)).containsOnly(Remove(autoLoc))
     }
 
     @Test
     fun deathKillsAutoIfEnergyZero() {
         auto.getStatus().energy = 0.0
-        assertThat(Death(auto).execute(gameAttributes, simMap)).containsOnly(Remove(autoLoc))
+        assertThat(Death(auto).execute(simMap)).containsOnly(Remove(autoLoc))
     }
 
 

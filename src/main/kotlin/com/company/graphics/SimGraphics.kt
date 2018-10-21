@@ -12,6 +12,7 @@ package com.company.graphics
  * @see java.awt.Graphics2D
 </P> */
 
+import com.company.automaton.PlantAutomaton
 import com.company.simmap.Loc
 import com.company.simmap.SimMap
 import org.jetbrains.annotations.NotNull
@@ -37,6 +38,8 @@ class SimGraphics(private val simMap: SimMap) : Frame("Java 2D Example01") {
         //We need to turn on the visibility of our frame
         //by setting the Visible parameter to true.
         isVisible = true
+
+        ignoreRepaint = true
 
         //Now, we want to be sure we properly dispose of resources
         //this frame is using when the window is closed.  We use
@@ -74,7 +77,11 @@ class SimGraphics(private val simMap: SimMap) : Frame("Java 2D Example01") {
         for (auto in simMap.getAutomatons()) {
             val loc = simMap.getLocation(auto)
             if (loc != null) {
-                drawCircle(g2d, Color.BLACK, loc)
+                if (auto is PlantAutomaton) {
+                    drawCircle(g2d, Color.GREEN, loc)
+                } else {
+                    drawCircle(g2d, Color.BLUE, loc)
+                }
             }
         }
     }
