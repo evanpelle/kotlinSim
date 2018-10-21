@@ -8,12 +8,11 @@
 -- reproduce DONE
 -- attack DONE
 -- create status system DONE
--- create action/event system
+-- create action/event system DONE
+-- implement game attributes class
 -- unit tests
--- refactor ReproduceUpdate
--- integration tests
 -- implement LocalMap
+-- refactor ReproduceUpdate
 -- move reports status
--- status system with actions
 -- seed
 -- auto sight

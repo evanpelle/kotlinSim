@@ -1,17 +1,28 @@
 package com.company.action
 
-import com.company.action.SimAction
+import com.company.GameAttributes
 import com.company.automaton.Automaton
 import com.company.automaton.Status
 import com.company.event.Event
 import com.company.event.StatusUpdateEvent
 import com.company.simmap.SimMap
 
-class Heal(private val auto: Automaton) : SimAction {
+data class Heal(private val auto: Automaton) : SimAction {
 
-    override fun execute(simMap: SimMap): List<Event> {
-        if (auto.getStatus().energy > 25 && auto.getStatus().health < auto.getStatus().attributes.maxHealth - 5) {
-            return listOf(StatusUpdateEvent(auto.getStatus(), Status.StatusChange(5.0, -20.0)))
+    companion object {
+        const val healthGained = 5.0
+        const val energyRequired = 25.0
+    }
+
+    override fun execute(ga: GameAttributes, simMap: SimMap): List<Event> {
+        if (auto.getStatus().energy > energyRequired
+                && auto.getStatus().health < auto.getStatus().attributes.maxHealth - healthGained) {
+            return listOf(
+                    StatusUpdateEvent(
+                            auto.getStatus(),
+                            Status.StatusChange(healthGained, -energyRequired)
+                    )
+            )
         }
         return emptyList()
     }

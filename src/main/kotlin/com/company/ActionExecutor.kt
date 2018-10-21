@@ -7,19 +7,16 @@ import com.company.simmap.SimMap
 
 class ActionExecutor {
 
-    fun executeActions(simMap: SimMap, actions: List<Event>) {
-        reduceToBasicEvents(simMap, actions).forEach { it.execute(simMap) }
+    fun executeAction(gameAttributes: GameAttributes, simMap: SimMap, action: Event) {
+        executeActions(gameAttributes, simMap, listOf(action))
     }
 
-    private fun reduceToBasicEvents(simMap: SimMap, actions: List<Event>): List<BasicEvent> {
-        val basicEvents: MutableList<BasicEvent> = mutableListOf()
+    fun executeActions(gameAttributes: GameAttributes, simMap: SimMap, actions: List<Event>) {
         for (action in actions) {
-
             when (action) {
-                is BasicEvent -> basicEvents.add(action)
-                is SimAction -> basicEvents.addAll(reduceToBasicEvents(simMap, action.execute(simMap)))
+                is BasicEvent -> action.execute(simMap)
+                is SimAction -> executeActions(gameAttributes, simMap, action.execute(gameAttributes, simMap))
             }
         }
-        return basicEvents
     }
 }

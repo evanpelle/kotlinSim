@@ -1,6 +1,7 @@
 package com.company.simmap
 
 import com.company.automaton.TestAutomaton
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
@@ -91,5 +92,22 @@ internal class SimMapTest {
         simMap.addAutomaton(loc, auto)
         assertEquals(loc, simMap.getLocation(auto))
     }
+
+    // TODO
+
+//    @Test
+//    fun getLocalMapReturnsMapOfCorrectSize() {
+//        val localMap = simMap.getLocalMap(Loc(5, 5), 1)
+//        assertThat(localMap.height).isEqualTo(1)
+//        assertThat(localMap.width).isEqualTo(1)
+//    }
+//
+//    @Test
+//    fun localMapContainsAutos() {
+//        simMap.addAutomaton(Loc(1, 1), auto)
+//        val localMap = simMap.getLocalMap(Loc(1, 1), 1)
+//        assertThat(localMap.getAutomaton(Loc(0, 0))).isEqualTo(auto)
+//        assertThat(localMap.getAutomatons()).containsOnly(auto)
+//    }
 
 }

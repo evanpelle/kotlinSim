@@ -1,8 +1,11 @@
 package com.company.simmap
 
 import com.company.automaton.Automaton
+import java.util.*
 
-class SimMap(val width: Int, val height: Int) {
+class SimMap(val width: Int, val height: Int, val offset: Loc) {
+
+    constructor(width: Int, height: Int): this(width, height, Loc(0, 0))
 
     private val map: Array<Array<Automaton?>> = Array(width) { arrayOfNulls<Automaton>(height) }
 
@@ -19,7 +22,7 @@ class SimMap(val width: Int, val height: Int) {
     fun getRandomNeighborWithAuto(loc: Loc): Loc? {
         val neighborsWithAutos = loc.getNeighbors().filter { containsAuto(it) }
         if (neighborsWithAutos.isNotEmpty()) {
-            return neighborsWithAutos[(Math.random() * neighborsWithAutos.size).toInt()]
+            return neighborsWithAutos[(Random().nextDouble() * neighborsWithAutos.size).toInt()]
         }
         return null
     }
@@ -81,7 +84,7 @@ class SimMap(val width: Int, val height: Int) {
     }
 
     fun isOnMap(loc: Loc): Boolean {
-        return loc.x >= 0 && loc.y >= 0 && loc.x < width && loc.y < height
+        return loc.x >= offset.x && loc.y >= 0 && loc.x < width && loc.y < height
     }
 
     fun isOnMap(auto: Automaton): Boolean {
