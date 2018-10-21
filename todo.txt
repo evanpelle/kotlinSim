@@ -7,6 +7,12 @@
 -- death DONE
 -- reproduce DONE
 -- attack DONE
--- create status system
+-- create status system DONE
+-- create action/event system
+-- unit tests
+-- integration tests
+-- implement LocalMap
+-- move reports status
+-- status system with actions
 -- seed
 -- auto sight

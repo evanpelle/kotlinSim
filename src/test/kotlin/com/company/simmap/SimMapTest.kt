@@ -11,73 +11,73 @@ internal class SimMapTest {
 
     @Test
     fun isOnMapReturnsTrueIfLocationIsOnMap() {
-        assertTrue(simMap.isOnMap(Location(1, 1)))
+        assertTrue(simMap.isOnMap(Loc(1, 1)))
     }
 
     @Test
     fun isOnMapReturnsFalseIfLocationIsNotOnMap() {
-        assertFalse(simMap.isOnMap(Location(11, 11)))
+        assertFalse(simMap.isOnMap(Loc(11, 11)))
     }
 
     @Test
     fun addAutomatonReturnsTrueIfSuccessful() {
-        assertTrue(simMap.addAutomaton(Location(1, 1), auto))
+        assertTrue(simMap.addAutomaton(Loc(1, 1), auto))
     }
 
     @Test
     fun addAutomatonReturnsFalseIfNotSuccessful() {
-        assertFalse(simMap.addAutomaton(Location(11,11), auto))
+        assertFalse(simMap.addAutomaton(Loc(11,11), auto))
     }
 
     @Test
     fun isEmptyReturnsTrueIfCellEmpty() {
-        assertTrue(simMap.isEmpty(Location(1,1)))
+        assertTrue(simMap.isEmpty(Loc(1,1)))
     }
 
     @Test
     fun isEmptyReturnsFalseIsCellNotEmpty() {
-        simMap.addAutomaton(Location(1,1), auto)
-        assertFalse(simMap.isEmpty(Location(1,1)))
+        simMap.addAutomaton(Loc(1,1), auto)
+        assertFalse(simMap.isEmpty(Loc(1,1)))
     }
 
     @Test
     fun getAutomatonReturnsAutomatonIfThereIsOneAtLocation() {
-        simMap.addAutomaton(Location(1, 1), auto)
-        assertEquals(auto, simMap.getAutomaton(Location(1, 1)))
+        simMap.addAutomaton(Loc(1, 1), auto)
+        assertEquals(auto, simMap.getAutomaton(Loc(1, 1)))
     }
 
     @Test
     fun getAutomatonReturnsNullIfThereIsNoneAtLocation() {
-        simMap.addAutomaton(Location(1, 1), auto)
-        assertNull(simMap.getAutomaton(Location(2, 2)))
+        simMap.addAutomaton(Loc(1, 1), auto)
+        assertNull(simMap.getAutomaton(Loc(2, 2)))
     }
 
     @Test
     fun getAutomatonReturnsNullIfLocationIsNotOnMap() {
-        assertNull(simMap.getAutomaton(Location(11, 11)))
+        assertNull(simMap.getAutomaton(Loc(11, 11)))
     }
 
     @Test
     fun removeAutomatonReturnsNullIfLocationNotOnMap() {
-        assertNull(simMap.removeAutomaton(Location(11, 11)))
+        assertNull(simMap.removeAutomaton(Loc(11, 11)))
     }
 
     @Test
     fun removeAutomatonReturnsNullIfCellIsEmpty() {
-        assertNull(simMap.removeAutomaton(Location(1, 1)))
+        assertNull(simMap.removeAutomaton(Loc(1, 1)))
     }
 
     @Test
     fun removeAutomatonReturnsAutomatonIfInCell() {
-        simMap.addAutomaton(Location(1, 1), auto)
-        assertEquals(auto, simMap.getAutomaton(Location(1, 1)))
+        simMap.addAutomaton(Loc(1, 1), auto)
+        assertEquals(auto, simMap.getAutomaton(Loc(1, 1)))
     }
 
     @Test
     fun removeAutomatonRemovesAutomatonFromMap() {
-        simMap.addAutomaton(Location(1,1), auto)
-        simMap.removeAutomaton(Location(1,1))
-        assertTrue(simMap.isEmpty(Location(1, 1)))
+        simMap.addAutomaton(Loc(1,1), auto)
+        simMap.removeAutomaton(Loc(1,1))
+        assertTrue(simMap.isEmpty(Loc(1, 1)))
     }
 
     @Test
@@ -87,7 +87,7 @@ internal class SimMapTest {
 
     @Test
     fun getLocationReturnsLocationIfAutomatonInMap() {
-        val loc = Location(1, 1)
+        val loc = Loc(1, 1)
         simMap.addAutomaton(loc, auto)
         assertEquals(loc, simMap.getLocation(auto))
     }

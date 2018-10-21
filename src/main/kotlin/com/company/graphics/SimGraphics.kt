@@ -12,7 +12,7 @@ package com.company.graphics
  * @see java.awt.Graphics2D
 </P> */
 
-import com.company.simmap.Location
+import com.company.simmap.Loc
 import com.company.simmap.SimMap
 import org.jetbrains.annotations.NotNull
 import java.awt.*
@@ -79,12 +79,12 @@ class SimGraphics(private val simMap: SimMap) : Frame("Java 2D Example01") {
         }
     }
 
-    private fun drawRect(g2D: Graphics2D, color: Color, loc: Location) {
+    private fun drawRect(g2D: Graphics2D, color: Color, loc: Loc) {
         g2D.color = color
         g2D.drawRect(loc.x * horizontalScale, loc.y * horizontalScale, horizontalScale, verticalScale)
     }
 
-    private fun drawCircle(g2D: Graphics2D, color: Color, loc: Location) {
+    private fun drawCircle(g2D: Graphics2D, color: Color, loc: Loc) {
         g2D.color = color
         g2D.drawOval(
                 loc.x * horizontalScale,

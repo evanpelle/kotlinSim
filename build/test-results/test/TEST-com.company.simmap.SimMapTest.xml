@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.company.simmap.SimMapTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2018-10-15T02:52:42" hostname="DESKTOP-7LGOKB8" time="0.005">
+  <properties/>
+  <testcase name="getLocationReturnsNullIfAutomatonNotInMap" classname="com.company.simmap.SimMapTest" time="0.001"/>
+  <testcase name="removeAutomatonReturnsNullIfCellIsEmpty" classname="com.company.simmap.SimMapTest" time="0.001"/>
+  <testcase name="getAutomatonReturnsNullIfLocationIsNotOnMap" classname="com.company.simmap.SimMapTest" time="0.0"/>
+  <testcase name="addAutomatonReturnsFalseIfNotSuccessful" classname="com.company.simmap.SimMapTest" time="0.0"/>
+  <testcase name="isEmptyReturnsTrueIfCellEmpty" classname="com.company.simmap.SimMapTest" time="0.0"/>
+  <testcase name="removeAutomatonReturnsNullIfLocationNotOnMap" classname="com.company.simmap.SimMapTest" time="0.001"/>
+  <testcase name="addAutomatonReturnsTrueIfSuccessful" classname="com.company.simmap.SimMapTest" time="0.0"/>
+  <testcase name="removeAutomatonRemovesAutomatonFromMap" classname="com.company.simmap.SimMapTest" time="0.0"/>
+  <testcase name="isEmptyReturnsFalseIsCellNotEmpty" classname="com.company.simmap.SimMapTest" time="0.0"/>
+  <testcase name="isOnMapReturnsTrueIfLocationIsOnMap" classname="com.company.simmap.SimMapTest" time="0.0"/>
+  <testcase name="removeAutomatonReturnsAutomatonIfInCell" classname="com.company.simmap.SimMapTest" time="0.0"/>
+  <testcase name="getLocationReturnsLocationIfAutomatonInMap" classname="com.company.simmap.SimMapTest" time="0.0"/>
+  <testcase name="isOnMapReturnsFalseIfLocationIsNotOnMap" classname="com.company.simmap.SimMapTest" time="0.0"/>
+  <testcase name="getAutomatonReturnsNullIfThereIsNoneAtLocation" classname="com.company.simmap.SimMapTest" time="0.0"/>
+  <testcase name="getAutomatonReturnsAutomatonIfThereIsOneAtLocation" classname="com.company.simmap.SimMapTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

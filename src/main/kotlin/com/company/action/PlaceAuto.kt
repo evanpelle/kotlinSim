@@ -1,10 +1,10 @@
 package com.company.action
 
 import com.company.automaton.Automaton
-import com.company.simmap.Location
+import com.company.simmap.Loc
 import com.company.simmap.SimMap
 
-class PlaceAuto(private val auto: Automaton, private val loc: Location) : SimAction {
+class PlaceAuto(private val auto: Automaton, private val loc: Loc) : SimAction {
 
     override fun performAction(simMap: SimMap) {
         if (simMap.canMoveOn(loc)) {

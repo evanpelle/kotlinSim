@@ -1,6 +1,6 @@
 package com.company.graphics
 
-import com.company.simmap.Location
+import com.company.simmap.Loc
 import com.company.simmap.SimMap
 
 class SimMapPrinter {
@@ -10,7 +10,7 @@ class SimMapPrinter {
         sb.append(createBorder(simMap))
         for (y in 0 until simMap.height) {
             for (x in 0 until simMap.width) {
-                val auto = simMap.getAutomaton(Location(x,y))
+                val auto = simMap.getAutomaton(Loc(x,y))
                 if (auto != null) {
                     sb.append("p")
                 } else {

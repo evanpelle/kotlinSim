@@ -14,9 +14,9 @@ class SimMapGenerator {
         val width = 10
         val height = 10
         val simMap = SimMap(width, height)
-        simMap.addAutomaton(Location(3, 3), PlantAutomaton())
-        simMap.addAutomaton(Location(7, 7), AnimalAutomaton())
-        simMap.addAutomaton(Location(6, 6), DoNothingAuto())
+        simMap.addAutomaton(Loc(3, 3), PlantAutomaton())
+        simMap.addAutomaton(Loc(7, 7), AnimalAutomaton())
+        simMap.addAutomaton(Loc(6, 6), DoNothingAuto())
         return simMap
     }
 

@@ -2,32 +2,32 @@ package com.company.simmap
 
 import kotlin.math.abs
 
-data class Location(val x: Int, val y: Int) {
+data class Loc(val x: Int, val y: Int) {
 
-    constructor(base: Location) : this(base.x, base.y)
+    constructor(base: Loc) : this(base.x, base.y)
 
-    fun getDirection(other: Location): Direction? {
+    fun getDirection(other: Loc): Direction? {
         return Direction.values().find { getNeighbor(it) == other }
     }
 
-    fun isNeighbor(other: Location): Boolean {
+    fun isNeighbor(other: Loc): Boolean {
         return getNeighbors().contains(other)
     }
 
-    fun getNeighbors(): List<Location> {
+    fun getNeighbors(): List<Loc> {
         return Direction.values().map { getNeighbor(it) }
     }
 
-    fun getNeighbor(direction: Direction): Location {
+    fun getNeighbor(direction: Direction): Loc {
         return when (direction) {
-            Direction.NORTH -> Location(x, y - 1)
-            Direction.SOUTH -> Location(x, y + 1)
-            Direction.EAST -> Location(x + 1, y)
-            Direction.WEST -> Location(x - 1, y)
+            Direction.NORTH -> Loc(x, y - 1)
+            Direction.SOUTH -> Loc(x, y + 1)
+            Direction.EAST -> Loc(x + 1, y)
+            Direction.WEST -> Loc(x - 1, y)
         }
     }
 
-    fun getDistance(other: Location): Int {
+    fun getDistance(other: Loc): Int {
         return abs(x - other.x) + abs(y - other.y)
     }
 
@@ -39,7 +39,7 @@ data class Location(val x: Int, val y: Int) {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as Location
+        other as Loc
 
         if (x != other.x) return false
         if (y != other.y) return false

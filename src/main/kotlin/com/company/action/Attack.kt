@@ -13,7 +13,7 @@ class Attack(private val attacker: Automaton, private val attacked: Automaton): 
         val attackerLocation = simMap.getLocation(attacker) ?: return
         val attackedLocation = simMap.getLocation(attacked) ?: return
         if (attackerLocation.isNeighbor(attackedLocation)) {
-            attacker.getStatus().health += min(attacker.getStatus().maxHealth, attacked.getStatus().health)
+            attacker.getStatus().health += min(attacker.getStatus().attributes.maxHealth, attacked.getStatus().health)
             attacker.getStatus().energy -= 30
             println("$attacker at location $attackedLocation attacked and killed $attacked at $attackedLocation")
             Death(attacked).performAction(simMap)

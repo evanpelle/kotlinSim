@@ -1,6 +1,9 @@
 package com.company.automaton
 
 import com.company.action.*
+import com.company.action.Heal
+import com.company.action.PhotoSynth
+import com.company.action.ReproduceAction
 
 class PlantAutomaton : AutomatonImpl(Status.createDefault()) {
 

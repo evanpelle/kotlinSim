@@ -1,7 +1,7 @@
 package com.company.action
 
 import com.company.automaton.TestAutomaton
-import com.company.simmap.Location
+import com.company.simmap.Loc
 import com.company.simmap.SimMapGenerator
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -10,7 +10,7 @@ internal class PlaceAutoTest {
 
     private val simMap = SimMapGenerator().generateEmptyMap(10, 10)
 
-    private val location = Location(5, 5)
+    private val location = Loc(5, 5)
 
     @Test
     fun placesAutoWhenCellIsEmpty() {

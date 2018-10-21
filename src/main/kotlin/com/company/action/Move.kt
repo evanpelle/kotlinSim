@@ -1,5 +1,6 @@
 package com.company.action
 
+import com.company.action.SimAction
 import com.company.automaton.Automaton
 import com.company.simmap.Direction
 import com.company.simmap.SimMap
