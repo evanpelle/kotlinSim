@@ -12,8 +12,17 @@
 -- make animals different color DONE
 -- refactor/test ReproduceUpdate DONE
 -- animal finds and attacks
+-- fix failing Move test
+-- attack mechanics (with strength)
+-- find a way to chain actions, backup action on failure (create isValid interface method?)
 -- available energy
 -- implement LocalMap
 -- unit tests
 -- seed
 -- auto sight
+
+
+-- consider Action -> SimpleAction -> List<Event> ?
+       -- force every tick only one simple action
+
+-- consider making status immutable.

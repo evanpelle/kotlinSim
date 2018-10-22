@@ -6,7 +6,7 @@ import com.company.automaton.Status
 import com.company.event.Event
 import com.company.event.StatusUpdateEvent
 
-class ReproduceAction(private val parent: Automaton, private val childBuilder: () -> Automaton) : SimAction {
+data class ReproduceAction(private val parent: Automaton, private val childBuilder: () -> Automaton) : SimAction {
 
     companion object {
         const val healthCost = 50.0
@@ -21,15 +21,15 @@ class ReproduceAction(private val parent: Automaton, private val childBuilder: (
                 && parent.getStatus().energy > energyCost) {
             val emptyNeighbor = simMap.getRandomEmptyNeighbor(simMap.getLocation(parent) ?: return emptyList())
                     ?: return emptyList()
-            val auto = childBuilder.invoke()
-            auto.getStatus().health = childHealth
-            auto.getStatus().energy = childEnergy
+            val autoToBirth = childBuilder.invoke()
+            autoToBirth.getStatus().health = childHealth
+            autoToBirth.getStatus().energy = childEnergy
             return listOf(
                     StatusUpdateEvent(
                             parent.getStatus(),
                             Status.StatusChange(-healthCost, -energyCost)
                     ),
-                    PlaceAuto(auto, emptyNeighbor)
+                    PlaceAuto(autoToBirth, emptyNeighbor)
             )
         }
         return emptyList()

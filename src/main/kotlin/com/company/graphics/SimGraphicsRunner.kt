@@ -16,7 +16,7 @@ fun main(args: Array<String>) {
             simGraphics.repaint()
         }
         try {
-            Thread.sleep(50)
+            Thread.sleep(25)
         } catch (e: InterruptedException) {
             e.printStackTrace()
         }

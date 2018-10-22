@@ -1,10 +1,16 @@
 package com.company.automaton
 
-import com.company.action.*
-import com.company.action.DoNothing
-import com.company.action.Rest
+import com.company.action.AnimalAction
+import com.company.action.SimAction
 
-class AnimalAutomaton: AutomatonImpl(Status.createDefault()) {
+data class AnimalAutomaton(private val status: Status): Automaton {
+
+    constructor(): this(Status.fullStatus(Attributes(100.0, 100.0, 200.0)))
+
+    override fun getStatus(): Status {
+        return status
+    }
+
 
     override fun tick(): SimAction {
         return AnimalAction(this)

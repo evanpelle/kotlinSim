@@ -45,8 +45,8 @@ internal class StatusTest {
     fun settingEnergyMoreThanMaxEnergyMakesItMaxEnergy() {
         val testStatus = Status(
                 attributes,
-                200.0,
-                100.0
+                100.0,
+                200.0
         )
         assertThat(testStatus.energy).isEqualTo(100.0)
     }

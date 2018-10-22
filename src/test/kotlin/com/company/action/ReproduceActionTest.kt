@@ -3,6 +3,7 @@ package com.company.action
 import com.company.ActionExecutor
 import com.company.automaton.Status
 import com.company.automaton.TestAutomaton
+import com.company.event.Remove
 import com.company.event.StatusUpdateEvent
 import com.company.simmap.Loc
 import com.company.simmap.SimMap

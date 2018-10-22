@@ -1,11 +1,18 @@
 package com.company.automaton
 
+import com.company.action.DoNothing
 import com.company.action.SimAction
 
-class TestAutomaton : AutomatonImpl(Status.createDefault()) {
+data class TestAutomaton(private val status: Status) : Automaton {
+
+    override fun getStatus(): Status {
+        return status
+    }
+
+    constructor() : this(Status.createDefault())
 
     override fun tick(): SimAction {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return DoNothing()
     }
 
 }

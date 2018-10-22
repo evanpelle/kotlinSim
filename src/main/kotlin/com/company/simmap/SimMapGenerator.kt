@@ -1,6 +1,5 @@
 package com.company.simmap
 
-import com.company.automaton.DoNothingAuto
 import com.company.automaton.AnimalAutomaton
 import com.company.automaton.PlantAutomaton
 
@@ -15,8 +14,7 @@ class SimMapGenerator {
         val height = 10
         val simMap = SimMap(width, height)
         simMap.addAutomaton(Loc(3, 3), PlantAutomaton())
-        simMap.addAutomaton(Loc(7, 7), AnimalAutomaton())
-        simMap.addAutomaton(Loc(6, 6), DoNothingAuto())
+        simMap.addAutomaton(Loc(4, 4), AnimalAutomaton())
         return simMap
     }
 

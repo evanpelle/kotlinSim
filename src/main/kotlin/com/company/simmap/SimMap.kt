@@ -11,6 +11,11 @@ class SimMap(val width: Int, val height: Int, val offset: Loc) {
 
     private val automatonToLocMap: MutableMap<Automaton, Loc> = mutableMapOf()
 
+    fun getNeighbors(auto: Automaton): List<Automaton> {
+        val loc = getLocation(auto) ?: return emptyList()
+        return loc.getNeighbors().map(this::getAutomaton).mapNotNull { it }
+    }
+
     fun getRandomEmptyNeighbor(loc: Loc): Loc? {
         val emptyNeighborLocations = getEmptyNeighborLocations(loc)
         if (emptyNeighborLocations.isNotEmpty()) {

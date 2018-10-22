@@ -15,7 +15,7 @@ internal class HealTest {
     @Test
     fun healConvertsEnergyToHealth() {
         auto.getStatus().health -= 10
-        assertThat(Heal(auto).execute(simMap)).containsOnly(
+        assertThat(Heal(auto.getStatus()).execute(simMap)).containsOnly(
                 StatusUpdateEvent(
                         auto.getStatus(),
                         Status.StatusChange(Heal.healthGained, -Heal.energyRequired)
@@ -25,13 +25,13 @@ internal class HealTest {
 
     @Test
     fun healDoesNothingIfAutoFullHealth() {
-        assertThat(Heal(auto).execute(simMap)).isEmpty()
+        assertThat(Heal(auto.getStatus()).execute(simMap)).isEmpty()
     }
 
     @Test
     fun healDoesNothingIfAutoDoesNotHaveEnoughEnergy() {
         auto.getStatus().energy = Heal.energyRequired - 1.0
-        assertThat(Heal(auto).execute(simMap)).isEmpty()
+        assertThat(Heal(auto.getStatus()).execute(simMap)).isEmpty()
     }
 
 }

@@ -4,8 +4,8 @@ import kotlin.math.max
 import kotlin.math.min
 
 class Status(val attributes: Attributes,
-             energy: Double,
-             health: Double) {
+             health: Double,
+             energy: Double) {
 
     var health = 0.0
         set(value) {
@@ -25,6 +25,7 @@ class Status(val attributes: Attributes,
     companion object Factory {
 
         fun createDefault(): Status = Status(Attributes(1.0, 1.0, 1.0), 100.0, 100.0)
+        fun fullStatus(attributes: Attributes): Status = Status(attributes, attributes.maxHealth, attributes.maxEnergy)
 
     }
 
