@@ -21,7 +21,7 @@ data class Attack(private val attacker: Automaton, private val attacked: Automat
         val attackedLocation = simMap.getLocation(attacked) ?: return emptyList()
         if (attackerLocation.isNeighbor(attackedLocation)) {
             val attackerStatusUpdate = StatusUpdateEvent(attacker.getStatus(), Status.StatusChange(attacked.getStatus().health/2, -attackEnergy))
-            println("$attacker at location $attackedLocation attacked and killed $attacked at $attackedLocation")
+//            println("$attacker at location $attackedLocation attacked and killed $attacked at $attackedLocation")
             return listOf(attackerStatusUpdate) + Remove(attackedLocation)
         }
         return emptyList()

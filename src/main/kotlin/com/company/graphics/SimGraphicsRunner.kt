@@ -12,11 +12,11 @@ fun main(args: Array<String>) {
     for (i in 0..100000000) {
 //        println("tick")
         simRunner.tick(simMap)
-        if (i % 1 == 0) {
+        if (i % 10 == 0) {
             simGraphics.repaint()
         }
         try {
-            Thread.sleep(25)
+            Thread.sleep(10)
         } catch (e: InterruptedException) {
             e.printStackTrace()
         }

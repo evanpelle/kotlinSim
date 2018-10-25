@@ -27,8 +27,8 @@ class SimGraphics(private val simMap: SimMap) : Frame("Java 2D Example01") {
      * the frame.
      */
 
-    private val horizontalScale = 50
-    private val verticalScale = 50
+    private val horizontalScale = 10
+    private val verticalScale = 10
 
     init {
 
@@ -40,6 +40,8 @@ class SimGraphics(private val simMap: SimMap) : Frame("Java 2D Example01") {
         isVisible = true
 
         ignoreRepaint = true
+
+        this.createBufferStrategy(4)
 
         //Now, we want to be sure we properly dispose of resources
         //this frame is using when the window is closed.  We use
@@ -53,6 +55,10 @@ class SimGraphics(private val simMap: SimMap) : Frame("Java 2D Example01") {
         )
     }
 
+    override fun update(g: Graphics?) {
+        paint(g)
+    }
+
     /**
      * The paint method provides the real magic.  Here we
      * cast the Graphics object to Graphics2D to illustrate
@@ -60,12 +66,13 @@ class SimGraphics(private val simMap: SimMap) : Frame("Java 2D Example01") {
      * Graphics2D that we are used to using with Graphics.
      */
     override fun paint(@NotNull g: Graphics?) {
-        super.paint(g)
-
+//        super.paint(g)
 
         if (g == null) {
             return
         }
+        g.color = Color.WHITE
+        g.fillRect(0, 0, width, height)
 
         //Let's set the Color to blue and then use the Graphics2D
         //object to draw a rectangle, offset from the square.
@@ -93,9 +100,9 @@ class SimGraphics(private val simMap: SimMap) : Frame("Java 2D Example01") {
 
     private fun drawCircle(g2D: Graphics2D, color: Color, loc: Loc) {
         g2D.color = color
-        g2D.drawOval(
-                loc.x * horizontalScale,
-                loc.y * verticalScale,
+        g2D.fillOval(
+                loc.x * horizontalScale + horizontalScale,
+                loc.y * verticalScale + 60,
                 horizontalScale - horizontalScale/5,
                 verticalScale - horizontalScale/5
         )

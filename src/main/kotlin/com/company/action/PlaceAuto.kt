@@ -10,7 +10,7 @@ data class PlaceAuto(private val auto: Automaton, private val loc: Loc) : SimAct
 
     override fun execute(simMap: SimMap): List<Event> {
         if (simMap.canMoveOn(loc)) {
-            println("auto $auto at $loc born")
+//            println("auto $auto at $loc born")
             return listOf(Insert(loc, auto))
         }
         return emptyList()

@@ -9,7 +9,7 @@ class Death(private val auto: Automaton) : SimAction {
 
     override fun execute(simMap: SimMap): List<Event> {
         if (auto.getStatus().health <= 0 || auto.getStatus().energy <= 0) {
-            println("auto $auto at location ${simMap.getLocation(auto)} died")
+//            println("auto $auto at location ${simMap.getLocation(auto)} died")
             val loc = simMap.getLocation(auto)!!
             return listOf(Remove(loc))
         }

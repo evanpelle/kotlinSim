@@ -20,7 +20,6 @@ data class Move(private val owner: Automaton, private val direction: Direction) 
         val ownerLocation = simMap.getLocation(owner) ?: return emptyList()
         val targetLocation = ownerLocation.getNeighbor(direction)
         if (owner.getStatus().energy >= moveEnergy + moveEnergyReserve && simMap.isEmpty(targetLocation)) {
-            println("moved from $ownerLocation to $targetLocation")
             return listOf(
                     Remove(ownerLocation),
                     Insert(targetLocation, owner),

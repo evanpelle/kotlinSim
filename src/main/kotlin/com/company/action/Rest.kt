@@ -8,8 +8,8 @@ import com.company.simmap.SimMap
 data class Rest(private val status: Status) : SimAction {
 
     companion object {
-        const val healthCost = .1
-        const val energyGained = 2.0
+        const val healthCost = .05
+        const val energyGained = 3.0
     }
 
     override fun execute(simMap: SimMap): List<Event> {

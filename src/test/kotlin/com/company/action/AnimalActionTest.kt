@@ -6,10 +6,18 @@ import com.company.automaton.TestAutomaton
 import com.company.simmap.Loc
 import com.company.simmap.SimMap
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.mockito.Mock
+import org.mockito.Mockito.`when`
+import org.mockito.Mockito.mock
+import org.mockito.MockitoAnnotations.initMocks
+import java.util.*
 
 internal class AnimalActionTest {
 
+    @Mock
+    private lateinit var randomMock: Random
     private val simMap = SimMap(10, 10)
     private val auto = TestAutomaton()
     private val action = AnimalAction(auto)
@@ -38,6 +46,11 @@ internal class AnimalActionTest {
             )
     )
 
+    @BeforeEach
+    fun before() {
+        initMocks(this)
+    }
+
     @Test
     fun returnsRestOrHealActionWhenValid() {
         auto.getStatus().energy = 10.0
@@ -47,7 +60,8 @@ internal class AnimalActionTest {
     }
 
     @Test
-    fun returnsAttackNeighborActionIfItHasAWeakerNeighbor() {
+    fun returnsAttackNeighborActionIfItHasAWeakerNeighborAndRandom() {
+        `when`(randomMock.nextDouble()).thenReturn(.79)
         simMap.addAutomaton(Loc(1, 1), auto)
         simMap.addAutomaton(Loc(1, 2), weakAuto)
         assertThat(action.execute(simMap)).containsOnly(
@@ -75,17 +89,19 @@ internal class AnimalActionTest {
     }
 
     @Test
-    fun movesRandomlyWhenDoesNotHaveNeighborToAttack() {
-        auto.getStatus().energy = 60.0
+    fun movesRandomlyWhenDoesNotHaveNeighborToAttackAndRandom() {
         simMap.addAutomaton(Loc(1, 1), auto)
+        `when`(randomMock.nextDouble()).thenReturn(.89).thenReturn(.49)
+        val action = AnimalAction(auto, randomMock)
         assertThat(action.execute(simMap)).containsOnly(
                 RandomMove(auto)
         )
     }
 
     @Test
-    fun reproducesIfHasEnoughEnergyAndHealthAndNoAttackableNeighbors() {
-        simMap.addAutomaton(Loc(1, 1), auto)
+    fun reproducesIfRandomSet() {
+        `when`(randomMock.nextDouble()).thenReturn(.91)
+        val action = AnimalAction(auto, randomMock)
         assertThat(action.execute(simMap).map { it::class }).containsOnly(
                 ReproduceAction::class
         )

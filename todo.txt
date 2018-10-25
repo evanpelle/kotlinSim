@@ -11,11 +11,14 @@
 -- create action/event system DONE
 -- make animals different color DONE
 -- refactor/test ReproduceUpdate DONE
--- animal finds and attacks
--- fix failing Move test
+-- animal finds and attacks DONE
+-- fix failing Move test DONE
+-- make status immutable.
+-- gitignore, remove ignored files
 -- attack mechanics (with strength)
 -- find a way to chain actions, backup action on failure (create isValid interface method?)
--- available energy
+-- create predator
+-- steady frame-rate
 -- implement LocalMap
 -- unit tests
 -- seed
@@ -25,4 +28,3 @@
 -- consider Action -> SimpleAction -> List<Event> ?
        -- force every tick only one simple action
 
--- consider making status immutable.
