@@ -1,11 +1,11 @@
 package com.company.automaton
 
-import com.company.action.DoNothing
-import com.company.action.SimAction
+import com.company.event.basicaction.DoNothing
+import com.company.event.complexaction.ComplexAction
 
 class DoNothingAuto: AutomatonImpl(Status.createDefault()) {
 
-    override fun tick(): SimAction {
+    override fun tick(): ComplexAction {
         return DoNothing()
     }
 

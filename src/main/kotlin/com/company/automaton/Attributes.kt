@@ -14,6 +14,8 @@ class Attributes(maxHealth: Double, maxEnergy: Double, strength: Double) {
         this.strength = multiplier * strength / total
     }
 
+    fun createMaxStatus(): Status = Status(maxHealth, maxEnergy)
+
     companion object {
 
         fun createDefault(): Attributes {

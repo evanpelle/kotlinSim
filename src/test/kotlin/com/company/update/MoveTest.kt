@@ -1,7 +1,7 @@
 package com.company.update
 
 import com.company.ActionExecutor
-import com.company.action.Move
+import com.company.event.basicaction.Move
 import com.company.automaton.TestAutomaton
 import com.company.simmap.Direction
 import com.company.simmap.Loc

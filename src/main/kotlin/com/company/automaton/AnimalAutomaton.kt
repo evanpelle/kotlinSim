@@ -1,7 +1,7 @@
 package com.company.automaton
 
-import com.company.action.AnimalAction
-import com.company.action.SimAction
+import com.company.event.complexaction.AnimalAction
+import com.company.event.complexaction.ComplexAction
 
 data class AnimalAutomaton(private val status: Status): Automaton {
 
@@ -12,7 +12,7 @@ data class AnimalAutomaton(private val status: Status): Automaton {
     }
 
 
-    override fun tick(): SimAction {
+    override fun tick(): ComplexAction {
         return AnimalAction(this)
     }
 

@@ -1,7 +1,7 @@
 package com.company
 
-import com.company.action.Death
-import com.company.action.Metabolize
+import com.company.event.basicaction.Death
+import com.company.event.basicaction.Metabolize
 import com.company.simmap.SimMap
 
 class SimRunner(private val executor: ActionExecutor) {

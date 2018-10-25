@@ -1,21 +1,21 @@
 package com.company
 
-import com.company.action.SimAction
-import com.company.event.BasicEvent
-import com.company.event.Event
+import com.company.event.complexaction.ComplexAction
+import com.company.event.basicaction.BasicAction
+import com.company.event.Action
 import com.company.simmap.SimMap
 
 class ActionExecutor {
 
-    fun executeAction(simMap: SimMap, action: Event) {
+    fun executeAction(simMap: SimMap, action: Action) {
         executeActions(simMap, listOf(action))
     }
 
-    fun executeActions(simMap: SimMap, actions: List<Event>) {
+    fun executeActions(simMap: SimMap, actions: List<Action>) {
         for (action in actions) {
             when (action) {
-                is BasicEvent -> action.execute(simMap)
-                is SimAction -> executeActions(simMap, action.execute(simMap))
+                is BasicAction -> action.execute(simMap)
+                is ComplexAction -> executeActions(simMap, action.execute(simMap))
             }
         }
     }
